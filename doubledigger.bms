@@ -1,0 +1,13 @@
+# (.pak) Double Digger
+
+IDString "\x78\x19"
+
+get HEADERSIZE short
+get FILECOUNT short
+
+for i = 0 < FILECOUNT
+	get FILENAME string
+	get FILESIZE long
+	get FILEOFFSET long
+	log FILENAME FILEOFFSET FILESIZE
+next i

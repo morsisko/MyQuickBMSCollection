@@ -1,0 +1,16 @@
+# main.hal Tajemnicza Wyspa (Mysterious Island)
+
+IDString "APUK"
+
+get FILECOUNT long
+set OFFSET long 0x20
+
+for i = 0 < FILECOUNT
+	goto OFFSET
+	get FILESIZE long
+	get FILEOFFSET long
+	get DUMMY longlong
+	get FILENAME string
+	log FILENAME FILEOFFSET FILESIZE
+	math OFFSET + 0x40
+next i
