@@ -1,0 +1,20 @@
+# Carl the Caveman (Karol Jaskiniowiec)
+# data.hdp, pack*.lp
+
+GoTo 0x25
+Get FILECOUNT long
+
+For i = 1 <= FILECOUNT
+	Set OFFSETOUNTER long i
+	Math OFFSETOUNTER * 0x29
+	
+	Get NAMELEN byte
+	GetDString NAME NAMELEN
+	
+	Math OFFSETOUNTER + 0x21
+	GoTo OFFSETOUNTER
+	Get FILEOFFSET long
+	Get FILESIZE long
+	
+	Log NAME FILEOFFSET FILESIZE
+Next i
