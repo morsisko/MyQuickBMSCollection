@@ -1,0 +1,35 @@
+# Maluch Racer 2, Czeski Rajd (and probably others on the same engine)
+# Unpacks: menu.dat, misc.dat, sound.dat, track/*.dat
+# WARN: intro.dat is not packed! It is normal video file, you can play it using VLC, etc.
+
+Get ARCHIVE_NAME FILENAME
+
+Get FILEHEADER long
+
+If ARCHIVE_NAME != "sound.dat" 
+	Math FILEHEADER ^ 0xBC1558BC
+EndIf
+
+Math FILEHEADER - 1
+
+Get HEADERSIZE ASIZE
+Math HEADERSIZE - FILEHEADER
+
+Log MEMORY_FILE FILEHEADER HEADERSIZE
+Get FILECOUNT long MEMORY_FILE
+
+For i = 0 < FILECOUNT
+	If ARCHIVE_NAME != "sound.dat" 
+		FileXOR "0x95 0x8C 0xA7 0x46" 0 MEMORY_FILE
+	EndIf
+	
+	GetCT FILENAME string 0xD MEMORY_FILE
+	GetCT OFFSET string 0xD MEMORY_FILE
+	GetCT SIZE string 0xD MEMORY_FILE
+	
+	If ARCHIVE_NAME != "sound.dat" 
+		FileXOR "0x95 0x8C 0xA7 0x46" OFFSET
+	EndIf
+	
+	Log FILENAME OFFSET SIZE
+Next i
