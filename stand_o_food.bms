@@ -1,0 +1,18 @@
+# Szalone Bistro (Stand o Food) *.mjp
+
+Get NAME basename
+GET FILESIZE asize
+SET i long 0
+SET fileNumber 0
+Do
+	GoTo i
+	Get LEN long
+	Math i + 4
+	Math fileNumber + 1
+	String currentName = NAME
+	String currentName + "_"
+	String currentName + fileNumber
+	String currentName + ".png"
+	Log currentName i LEN
+	Math i + LEN
+While i < FILESIZE
