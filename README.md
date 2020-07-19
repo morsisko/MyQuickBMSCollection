@@ -9,3 +9,7 @@ My collection of [QuickBMS](https://aluigi.altervista.org/quickbms.htm) scripts 
 | [carl_caveman.bms](carl_caveman.bms) | Karol Jaskiniowiec (Carl the Caveman) | data.hdp, pack\*.lp | - |
 | [doubledigger.bms](doubledigger.bms) | Double Digger | fonts.pak, interface.pak, \*.lev, \x78\x19 | - |
 | [stand_o_food.bms](stand_o_food.bms) | Stand o Food (Szalone Bistro) | \*.mjp | two .jpg inside each file |
+| [maluch_v1.bms](maluch_v1.bms) | Maluch Racer (v1/Delux) and others on the same engine | \*.mar | - |
+| [turtle.bms](turtle.bms) | Żółwik i Skarb Piratów (Turtle) | Data.Pak | The same pack method as in Maluch Racer v2, other keys |
+
+Additionaly I made simple python script that can extract two keys needed to unpack files used in Blitz3D engine [blitz_extractor.py](blitz_extractor.py). You can use the keys by replacing the existing keys placed in turtle.bms or maluchracer.bms with those you got from blitz_extractor.py.
