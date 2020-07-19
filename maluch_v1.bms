@@ -1,0 +1,32 @@
+# Maluch Racer (and others on the same engine) *.mar
+
+IDString "MAR"
+Set HEADER_SIZE long 0x14
+
+GoTo 0x4
+Get FILE_COUNT long
+Set HEADER_LEN long FILE_COUNT
+
+#Math HEADER_LEN << 4
+#Math HEADER_LEN + FILE_COUNT
+#Math HEADER_LEN << 4
+Math HEADER_LEN * 0x110
+
+Log MEMORY_FILE HEADER_SIZE HEADER_LEN
+Set i long 0
+
+Do
+	Set POS long 0x110
+	Math POS * i
+	GoTo POS MEMORY_FILE
+	
+	Get NAME string MEMORY_FILE
+	
+	Math POS + 0x104
+	GoTo POS MEMORY_FILE
+	Get OFFSET long MEMORY_FILE
+	Get SIZE long MEMORY_FILE
+	Log NAME OFFSET SIZE
+	
+	Math i + 1
+While i < FILE_COUNT
