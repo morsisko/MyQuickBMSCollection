@@ -8,3 +8,4 @@ My collection of [QuickBMS](https://aluigi.altervista.org/quickbms.htm) scripts 
 | [maluchracer.bms](maluchracer.bms) | Maluch Racer / Czeski Rajd (possibly Trabi Racer and others on the same engine) | menu.dat, misc.dat, sound.dat, track/\*.dat | intro.dat is not packed, it is normal video file.
 | [carl_caveman.bms](carl_caveman.bms) | Karol Jaskiniowiec (Carl the Caveman) | data.hdp, pack\*.lp | - |
 | [doubledigger.bms](doubledigger.bms) | Double Digger | fonts.pak, interface.pak, \*.lev, \x78\x19 | - |
+| [stand_o_food.bms](stand_o_food.bms) | Stand o Food (Szalone Bistro) | \*.mjp | two .jpg inside each file |
