@@ -1,0 +1,28 @@
+#Gunship - Tank Killer (Data.PAK)
+
+IDString "PAK"
+
+GoTo 0x4
+Get CHUNK_SIZE long
+Get CHUNK_COUNT long
+
+For i = 0 < CHUNK_COUNT
+	Set CURRENT CHUNK_SIZE
+	Math CURRENT * i
+	Math CURRENT + 0xC
+	GoTo CURRENT
+	Get TEST byte
+	
+	If TEST != 0
+		GoTo -1 0 SEEK_CUR
+		Get NAME string
+		
+		GoTo CURRENT
+		GoTo CHUNK_SIZE 0 SEEK_CUR
+		GoTo -8 0 SEEK_CUR
+		
+		Get OFFSET long
+		Get SIZE long
+		Log NAME OFFSET SIZE
+	EndIf
+Next i
